@@ -25,7 +25,7 @@ server.tool(
     return { content: [{ type: "text", text: `Edited image: ${output[0]}` }] };
   }
 );
-
+app.get("/mcp", (req, res) => { res.json({ status: "ok", name: "inpaint-mcp" }); });
 app.post("/mcp", async (req, res) => {
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
   await server.connect(transport);
